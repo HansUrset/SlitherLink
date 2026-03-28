@@ -1,0 +1,7 @@
+package hansurset.slitherlink
+
+interface Platform {
+    val name: String
+}
+
+expect fun getPlatform(): Platform
