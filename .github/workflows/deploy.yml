@@ -1,0 +1,33 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ "main" ]
+
+permissions:
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: gradle/gradle-build-action@v2
+
+      - name: Build web app
+        run: ./gradlew jsBrowserProductionWebpack
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/dist/js/productionExecutable
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/deploy-pages@v4
