@@ -1,6 +1,5 @@
 package hansurset.slitherlink.ui.model
 
-import androidx.annotation.Size
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
