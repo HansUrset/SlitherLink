@@ -18,8 +18,8 @@ jobs:
       - uses: gradle/gradle-build-action@v2
 
       - name: Build web app
-        run: ./gradlew wasmJsBrowserDistribution
-
+        run: ./gradlew wasmJsBrowserDistribution --stacktrace
+  
       - name: Debug build output
         run: ls -R build
 
