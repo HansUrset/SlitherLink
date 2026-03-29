@@ -20,10 +20,14 @@ jobs:
       - name: Build web app
         run: ./gradlew wasmJsBrowserDistribution
 
+      - name: Debug build output
+        run: ls -R build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: build/dist/wasmJs/productionExecutable
+
 
   deploy:
     needs: build
