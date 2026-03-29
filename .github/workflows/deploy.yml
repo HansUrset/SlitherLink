@@ -19,9 +19,10 @@ jobs:
 
       - name: Build web app
         run: ./gradlew wasmJsBrowserDistribution --stacktrace
-  
-      - name: Debug build output
-        run: ls -R build
+
+      - name: Fix base path for GitHub Pages
+        run: |
+          sed -i 's|<head>|<head><base href="/SlitherLink/">|' build/wasm/packages/SlitherLink-composeApp/kotlin/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
