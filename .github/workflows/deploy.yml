@@ -18,12 +18,12 @@ jobs:
       - uses: gradle/gradle-build-action@v2
 
       - name: Build web app
-        run: ./gradlew jsBrowserProductionWebpack
+        run: ./gradlew wasmJsBrowserProductionWebpack
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: build/dist/js/productionExecutable
+          path: build/js/packages/SlitherLink-composeApp/kotlin
 
   deploy:
     needs: build

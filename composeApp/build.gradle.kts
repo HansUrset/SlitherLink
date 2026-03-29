@@ -8,12 +8,8 @@ plugins {
 }
 
 kotlin {
-    js {
-        browser {
-            commonWebpackConfig {
-                outputFileName = "main.js"
-            }
-        }
+    js(IR) {
+        browser()
         binaries.executable()
     }
 
